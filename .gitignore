@@ -1,0 +1,30 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Environment / local config
+.env
+.env.*
+!.env.example
+
+# PHP dependencies
+backend/vendor/
+
+# Logs and runtime files
+backend/app/logs/*.log
+backend/app/logs/*.bak
+backend/app/logs/*.tmp
+backend/app/logs/*.cache
+
+# Cache / temp
+*.cache
+tmp/
+temp/
+
+# Archives and dumps
+*.zip
+*.tar
+*.gz
+*.sql.gz

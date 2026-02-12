@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/shared-pages.min.css?v=1.0">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <title>Teachers</title>
+</head>
+
+<body>
+    <div id="sidebar-container" data-active="teachers"></div>
+
+    <div class="content">
+        <nav>
+            <i class='bx bx-menu'></i>
+            <form action="#">
+                <div class="form-input">
+                    <input type="search" placeholder="Search...">
+                    <button class="search-btn" type="submit"><i class='bx bx-search'></i></button>
+                </div>
+            </form>
+            <input type="checkbox" id="theme-toggle" hidden>
+            <label for="theme-toggle" class="theme-toggle"></label>
+            <a href="#" class="notif">
+                <i class='bx bx-bell'></i>
+                <span class="count">12</span>
+            </a>
+            <a href="#" class="profile">
+                <i class='bx bx-user-circle' style="font-size: 28px;"></i>
+            </a>
+        </nav>
+
+        <main>
+            <div class="header">
+                <div class="left">
+                    <h1>Teachers</h1>
+                    <ul class="breadcrumb">
+                        <li><a href="#">Settings</a></li>
+                        /
+                        <li><a href="#" class="active">Teachers</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Tab Navigation Bar -->
+            <div class="tab-nav">
+                <button class="tab-btn active" data-tab="subjects">Subjects</button>
+                <button class="tab-btn" data-tab="grades">Grades</button>
+                <button class="tab-btn" data-tab="assignments">Teacher Assignments</button>
+                <button class="tab-btn" data-tab="stats">Subject Stats</button>
+                <button class="tab-btn" data-tab="existing">Existing Teachers</button>
+            </div>
+
+            <!-- SUBJECTS TAB -->
+            <div id="subjects" class="tab-content active">
+            <div class="card" id="subjectsCard">
+                <h3>Subjects</h3>
+                <div class="row" style="margin-bottom: 12px;">
+                    <label for="subjectName">Subject name</label>
+                    <input type="text" id="subjectName" placeholder="e.g. Mathematics">
+                    <button class="btn-primary" id="addSubjectBtn">Add Subject</button>
+                </div>
+                <div id="subjectsTable" class="muted">No subjects yet.</div>
+            </div>
+            </div>
+
+            <!-- GRADES TAB -->
+            <div id="grades" class="tab-content">
+            <div class="card" id="gradesCard">
+                <h3>Grades</h3>
+                <div class="row" style="margin-bottom: 12px;">
+                    <label for="gradeValue">Grade</label>
+                    <input type="number" id="gradeValue" placeholder="e.g. 7" min="1">
+                    <label for="streamNames">Streams (comma-separated)</label>
+                    <input type="text" id="streamNames" placeholder="e.g. A, B, C">
+                    <button class="btn-primary" id="addGradeBtn">Add Grade</button>
+                </div>
+                <div id="gradesTable" class="muted">No grades yet.</div>
+            </div>
+            </div>
+
+            <!-- TEACHER ASSIGNMENTS TAB -->
+            <div id="assignments" class="tab-content">
+            <div class="card" id="teachersCard">
+                <h3>Teacher Assignments</h3>
+                <div class="row" style="margin-bottom: 12px;">
+                    <label for="teacherName">Teacher name</label>
+                    <input type="text" id="teacherName" placeholder="e.g. Ms. Njeri">
+                    <label for="teacherActive">
+                        <input type="checkbox" id="teacherActive" checked>
+                        Active
+                    </label>
+                    <button class="btn-primary" id="saveTeacherBtn">Save Teacher</button>
+                </div>
+                <div class="row" style="margin-bottom: 12px;">
+                    <input type="hidden" id="teacherId">
+                    <span class="muted" id="editTeacherName">Creating new teacher</span>
+                    <button class="btn-secondary" id="resetTeacherBtn" type="button">Reset</button>
+                </div>
+                <div class="row" style="margin-bottom: 12px;">
+                    <span class="muted">Select subjects and assign grades/streams for each.</span>
+                </div>
+                <div id="subjectsSelector" style="margin-bottom: 20px; padding: 15px; border: 2px solid #e5e7eb; border-radius: 8px; background: #f9fafb;">
+                    <div style="font-weight: 600; margin-bottom: 10px;">Select Subjects</div>
+                    <div id="subjectsCheckboxes" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px;">
+                    </div>
+                </div>
+                <div id="assignmentsWrap" class="muted">Select subjects above to assign grades and streams.</div>
+            </div>
+            </div>
+
+            <!-- SUBJECT STATS TAB -->
+            <div id="stats" class="tab-content">
+            <div class="card">
+                <h3>Subject Statistics</h3>
+                <div id="subjectStatsTable" class="muted">Loading subject statistics...</div>
+            </div>
+            </div>
+
+            <!-- EXISTING TEACHERS TAB -->
+            <div id="existing" class="tab-content">
+            <div class="card" id="teacherListCard">
+                <h3>Existing Teachers</h3>
+                <div id="teachersTable" class="muted">No teachers yet.</div>
+            </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Teacher Details Modal -->
+    <div id="teacherModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalTeacherName">Teacher Name</h2>
+                <button class="modal-close" id="modalClose">&times;</button>
+            </div>
+            <div id="modalBody">
+                <!-- Will be populated dynamically -->
+            </div>
+            <div class="modal-actions">
+                <button class="btn-close" id="modalCloseBtn">Close</button>
+                <button class="btn-delete" id="modalDeleteBtn">Delete Teacher</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/index.js"></script>
+    <script src="../../js/load-sidebar.js"></script>
+    <script src="../../js/teachers.js"></script>
+    <script src="../../js/shared-pages.min.js?v=1.3"></script>
+</body>
+
+</html>
