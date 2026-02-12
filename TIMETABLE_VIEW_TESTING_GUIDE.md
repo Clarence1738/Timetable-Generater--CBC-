@@ -17,7 +17,7 @@ The timetable view feature has been fixed and enhanced with the following improv
 ## Quick Testing Steps
 
 ### 1. Generate a Timetable
-1. Open `http://localhost/Educa_vol_1/JSS/timetable/Pages/settings/timetable.html`
+1. Open `http://localhost/timetable/Pages/settings/timetable.html`
 2. Scroll to "Generate Timetable" section
 3. Click the "Generate" button
 4. Wait for success message (shows number of attempts and entries created)
@@ -50,7 +50,7 @@ If you see errors, check:
 3. Backend error → Check backend/app/logs/error.log
 
 #### Verify Data Exists
-Visit: `http://localhost/Educa_vol_1/JSS/timetable/test_flow_validation.php`
+Visit: `http://localhost/timetable/test_flow_validation.php`
 
 This will show:
 - Database table status

@@ -1,6 +1,6 @@
-# JSS Timetable Management System
+# Timetable Management System
 
-A PHP-based school timetable management system for JSS that supports:
+A PHP-based school timetable management system  that supports:
 - Subject, grade, stream, and teacher setup
 - Grade-level timetable configuration (periods/day)
 - Subject lesson requirements per grade
@@ -72,20 +72,20 @@ This project uses a lightweight backend API (FastRoute + Auryn + Medoo) and HTML
    - `composer install`
 4. Verify database connection settings in `backend/config/config.php`.
 5. Ensure Apache is serving:
-   - `http://localhost/Educa_vol_1/JSS/timetable/`
+  - `http://localhost/timetable/`
 
 ---
 
 ## Default Local URLs
 
 - Main settings page:
-  - `http://localhost/Educa_vol_1/JSS/timetable/Pages/settings/timetable.html`
+  - `http://localhost/timetable/Pages/settings/timetable.html`
 - Class timetable page:
-  - `http://localhost/Educa_vol_1/JSS/timetable/Pages/views/class-timetable.html`
+  - `http://localhost/timetable/Pages/views/class-timetable.html`
 - Teacher timetable page:
-  - `http://localhost/Educa_vol_1/JSS/timetable/Pages/views/teacher-timetable.html`
+  - `http://localhost/timetable/Pages/views/teacher-timetable.html`
 - API base:
-  - `http://localhost/Educa_vol_1/JSS/timetable/backend/public/index.php`
+  - `http://localhost/timetable/backend/public/index.php`
 
 ---
 
